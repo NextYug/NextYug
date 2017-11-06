@@ -24,7 +24,7 @@ const appRoutes: Routes = [
     JavaCompComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule1,
     NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes
