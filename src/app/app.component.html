@@ -1,8 +1,11 @@
-<!-- Nav Bar -->
-<app-nav-bar></app-nav-bar>
+<div class="container-fluid" style="padding:0px;">
+    <!-- Nav Bar -->
+    <app-nav-bar *ngIf="mainMenuList && mainMenuList.length > 0" [menulist]="mainMenuList"></app-nav-bar>
 
-<!-- Container -->
-<router-outlet></router-outlet>
+    <!-- Main Container -->
+    <router-outlet></router-outlet>
 
-<!-- footer -->
-<app-footer-bar></app-footer-bar>
+    <!-- footer -->
+    <app-footer-bar></app-footer-bar>
+
+</div>

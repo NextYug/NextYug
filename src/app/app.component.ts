@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from './data.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,6 +8,23 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'UI Framework';
+export class AppComponent implements OnInit{
+  _dataService;
+  mainMenuList: Array<any> = [];
+  subMenu;
+  _route;  
+  constructor(private dataService: DataService, private route: Router){
+    this._dataService = dataService;
+    this._route = route;
+  }
+
+  ngOnInit() {
+    this._dataService.getData()
+        .subscribe(
+        (respData) => {
+          if (respData.UIframework && respData.UIframework.length > 0){
+            this.mainMenuList = respData.UIframework;
+          }
+        });
+  }
 }

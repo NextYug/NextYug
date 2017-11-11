@@ -1,3 +1,4 @@
+import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,13 +8,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MainContentComponent } from './main-content/main-content.component';
-import { JavaCompComponent } from './java-comp/java-comp.component';
+import { HttpModule } from '@angular/http';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+
 
 const appRoutes: Routes = [
-  { path: '', component: MainContentComponent },
-  { path: 'java', component: JavaCompComponent}
+  { path: '', component: HomeComponent },
+  { path: '**', component: MainContentComponent }
 ];
-
 
 @NgModule({
   declarations: [
@@ -21,16 +24,18 @@ const appRoutes: Routes = [
     NavBarComponent,
     FooterBarComponent,
     MainContentComponent,
-    JavaCompComponent
+    HomeComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes
-    ) 
+    ),
+    FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
