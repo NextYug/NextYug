@@ -15,7 +15,7 @@ export class NavBarComponent implements OnInit{
   menulist: Array<any> = [];
   displayMenu: Array<any> = [];
   _dataService;
-  public keyWordSearch: any;
+  keyWordSearch: any;
 
   constructor(dataService: DataService) {
     this._dataService = dataService;
@@ -36,13 +36,21 @@ export class NavBarComponent implements OnInit{
     this._dataService.setStatus(menu);
   }
 
+  clearSearch() {
+    console.log(this.keyWordSearch);
+    this.keyWordSearch = {};
+  }
+
   search = (text$: Observable<any>) =>
     text$
       .debounceTime(200)
       .distinctUntilChanged()
       .map(term => term.length < 0 ? []
-        : this.menulist.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1));
+        : this.menulist.filter(v => (v.name.toLowerCase().indexOf(term.toLowerCase()) > -1) || 
+                                     v.description.toLowerCase().indexOf(term.toLowerCase()) > -1));
 
   formatter = (x: { name: string }) => x.name;
+
+
 
 }

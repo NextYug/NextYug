@@ -1,23 +1,10 @@
-<!-- Example:
-<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Javascript</a>
-  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">UI</a>
-  <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">HTML</a>
-  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">CSS</a>
-</div>
-<div class="tab-content" id="v-pills-tabContent">
-  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
-  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-</div> -->
-<div class="row main-container" style="min-height:300px;">
+<div class="row main-container" style="min-height:90%;">
   <div class="col-2 nav-left-menu">
     <!-- required for floating -->
     <!-- Nav tabs -->
     <nav class="nav flex-column bg-inverse">
-      <a class="nav-link" *ngFor="let framework of displayFrameWorks" (click)="changeView(framework.name)">{{framework.name}}
-        <span *ngIf="framework.name === currentStatus" class="oi oi-arrow-circle-right"></span></a>
+      <a class="nav-link" href="javascript:void(0)" *ngFor="let framework of displayFrameWorks" (click)="changeView(framework.name)">{{framework.name}}
+        <i class="fa fa-arrow-right" *ngIf="framework.name === currentStatus" aria-hidden="true"></i></a>
     </nav>
   </div>
   <div class="col-10 main-content">
@@ -25,9 +12,12 @@
       <div class="row" [hidden]="framework.name !== currentStatus" *ngFor="let framework of displayFrameWorks">
         <div class="col text-center">
           <h4>{{framework.name}}</h4></div>
-        <div class="w-100"></div>
+        <div class="w-100 dropdown-divider"></div>
         <div class="col text-left"><p>{{framework.description}}</p></div>
-        <div class="w-100"></div>
+        <div class="w-100 dropdown-divider"></div>
+        <div class="col text-left">
+          <p><b>Version: </b>{{framework.version}}</p>
+        </div>
       </div>
     </div>
   </div>

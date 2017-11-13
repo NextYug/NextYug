@@ -11,6 +11,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { HttpModule } from '@angular/http';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 const appRoutes: Routes = [
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

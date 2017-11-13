@@ -1,22 +1,33 @@
 {
     "UIframework": [
         {
+            "id": 1,
             "name": "Angular",
-            "description": "Angular is Javascript framewor create by Google tool",
+            "description": "Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop. Angular is Javascript framewor create by Google tool.",
             "version": "2",
             "category": "JavaScript"
         },
         {
+            "id": 2,
             "name": "ReactJS",
-            "description": "ReactJS is Javascript framework create by Facebook",
+            "description": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. ReactJS is Javascript framework create by Facebook.",
             "version": "2",
             "category": "JavaScript"
         },
         {
+            "id": 3,
             "name": "BootStrap",
-            "description": "BootStrap is CSS framework created by twitter",
+            "description": "Build responsive, mobile-first projects on the web with the world's most popular front-end component library. Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery. BootStrap is CSS framework created by twitter.",
             "version": "3",
             "category": "CSS"
+        },
+        {
+            "id": 4,
+            "name": "Pure CSS",
+            "description": "A set of small, responsive CSS modules that you can use in every web project. Pure CSS framework alternative for bootstrap",
+            "version": "2",
+            "category": "CSS"
         }
+
     ]
 }
