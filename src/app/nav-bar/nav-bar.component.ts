@@ -8,7 +8,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.less']
 })
 export class NavBarComponent implements OnInit{
   @Input()
@@ -36,9 +36,12 @@ export class NavBarComponent implements OnInit{
     this._dataService.setStatus(menu);
   }
 
-  clearSearch() {
+  clearSearch(): void {
     console.log(this.keyWordSearch);
     this.keyWordSearch = {};
+  }
+  sendSearchVariable($event): void {
+    
   }
 
   search = (text$: Observable<any>) =>
@@ -46,8 +49,7 @@ export class NavBarComponent implements OnInit{
       .debounceTime(200)
       .distinctUntilChanged()
       .map(term => term.length < 0 ? []
-        : this.menulist.filter(v => (v.name.toLowerCase().indexOf(term.toLowerCase()) > -1) || 
-                                     v.description.toLowerCase().indexOf(term.toLowerCase()) > -1));
+        : this.menulist.filter(v => (v.name.toLowerCase().indexOf(term.toLowerCase()) > -1)));
 
   formatter = (x: { name: string }) => x.name;
 
